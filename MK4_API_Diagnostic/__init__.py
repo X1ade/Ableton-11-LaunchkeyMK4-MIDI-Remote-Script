@@ -24,6 +24,10 @@ _MODULES = (
     "ableton.v3.control_surface.display",
     "ableton.v3.control_surface.elements",
     "ableton.v3.control_surface.midi",
+    "ableton.v3.control_surface.display.view",
+    "ableton.v3.control_surface.display.view.view",
+    "ableton.v3.control_surface.display.notifications",
+    "ableton.v3.control_surface.display.notifications.all",
 )
 
 # (module, class name) pairs for every ableton class this script constructs directly.
@@ -31,6 +35,17 @@ _MODULES = (
 _SIGNATURES = (
     ("ableton.v3.control_surface.display", "DisplaySpecification"),
     ("ableton.v3.control_surface.display", "Renderable"),
+    ("ableton.v3.control_surface.display", "Display"),
+    ("ableton.v3.control_surface.display", "Text"),
+    ("ableton.v3.control_surface.display", "State"),
+    ("ableton.v3.control_surface.display", "StateFilters"),
+    ("ableton.v3.control_surface.display", "DefaultNotifications"),
+    ("ableton.v3.control_surface.display", "Notifications"),
+    ("ableton.v3.control_surface.display", "Event"),
+    ("ableton.v3.control_surface.display", "auto_break_lines"),
+    ("ableton.v3.control_surface.display", "updating_display"),
+    ("ableton.v3.control_surface.display.view.view", "View"),
+    ("ableton.v3.control_surface.display.notifications.all", "Notifications"),
     ("ableton.v3.control_surface", "ControlSurfaceSpecification"),
     ("ableton.v3.control_surface", "Skin"),
     ("ableton.v3.control_surface", "LiveObjSkinEntry"),
@@ -80,6 +95,11 @@ def _signature_of(lines, modname, clsname):
                 lines.append("__init__ signature: {}".format(sig))
             except (TypeError, ValueError) as e:
                 lines.append("signature unavailable: {!r}".format(e))
+        doc = inspect.getdoc(cls)
+        if doc:
+            lines.append("doc: {}".format(doc))
+        if inspect.isclass(cls):
+            lines.append("attrs: {}".format(sorted(n for n in dir(cls) if not n.startswith("_"))))
     except Exception:
         lines.append("=== SIGNATURE {} (FAILED) ===".format(label))
         lines.append(traceback.format_exc())
