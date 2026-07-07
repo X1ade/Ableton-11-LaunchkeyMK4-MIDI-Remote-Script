@@ -1,5 +1,6 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
+import inspect
 import os
 import traceback
 
@@ -25,6 +26,19 @@ _MODULES = (
     "ableton.v3.control_surface.midi",
 )
 
+# (module, class name) pairs for every ableton class this script constructs directly.
+# We dump the real constructor signature for each instead of guessing again.
+_SIGNATURES = (
+    ("ableton.v3.control_surface.display", "DisplaySpecification"),
+    ("ableton.v3.control_surface.display", "Renderable"),
+    ("ableton.v3.control_surface", "ControlSurfaceSpecification"),
+    ("ableton.v3.control_surface", "Skin"),
+    ("ableton.v3.control_surface", "LiveObjSkinEntry"),
+    ("ableton.v3.control_surface", "ElementsBase"),
+    ("ableton.v2.control_surface", "InternalParameter"),
+    ("ableton.v2.control_surface.control", "StepEncoderControl"),
+)
+
 
 def _names_of(mod):
     names = getattr(mod, "__all__", None)
@@ -40,6 +54,34 @@ def _check(lines, modname):
         lines.append(", ".join(_names_of(mod)))
     except Exception:
         lines.append("=== {} (IMPORT FAILED) ===".format(modname))
+        lines.append(traceback.format_exc())
+    lines.append("")
+
+
+def _signature_of(lines, modname, clsname):
+    label = "{}.{}".format(modname, clsname)
+    try:
+        mod = __import__(modname, fromlist=["*"])
+        cls = getattr(mod, clsname)
+        lines.append("=== SIGNATURE {} ===".format(label))
+        lines.append("type: {!r}".format(type(cls)))
+        fields = getattr(cls, "_fields", None)
+        if fields:
+            lines.append("_fields: {}".format(fields))
+            defaults = getattr(cls, "_field_defaults", None)
+            if defaults:
+                lines.append("_field_defaults: {}".format(defaults))
+        try:
+            sig = inspect.signature(cls)
+            lines.append("signature: {}".format(sig))
+        except (TypeError, ValueError):
+            try:
+                sig = inspect.signature(cls.__init__)
+                lines.append("__init__ signature: {}".format(sig))
+            except (TypeError, ValueError) as e:
+                lines.append("signature unavailable: {!r}".format(e))
+    except Exception:
+        lines.append("=== SIGNATURE {} (FAILED) ===".format(label))
         lines.append(traceback.format_exc())
     lines.append("")
 
@@ -62,6 +104,8 @@ def _run_diagnostic():
     _version_info(lines)
     for m in _MODULES:
         _check(lines, m)
+    for modname, clsname in _SIGNATURES:
+        _signature_of(lines, modname, clsname)
 
     text = "\n".join(lines)
     for path in (_OUT_PATH, os.path.join(_HERE, "mk4_api_dump.txt")):
