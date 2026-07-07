@@ -1,0 +1,25 @@
+2026-07-07T21:20:55.338596: info: ASIO: SInit: UseSetSampleRate: true
+2026-07-07T21:20:55.338604: info: ASIO: SInit: UseSampleRateCheck: true
+2026-07-07T21:20:55.338611: info: ASIO: SInit: finished
+2026-07-07T21:20:55.338648: info: Audio In Out: OnArchitecturesAdded started
+2026-07-07T21:20:55.338686: info: Audio In Out: OnArchitecturesAdded finished
+2026-07-07T21:20:58.318606: error: RemoteScriptError: Traceback (most recent call last):
+
+2026-07-07T21:20:58.318626: error: RemoteScriptError:   File "<string>", line 1, in <module>
+
+2026-07-07T21:20:58.318782: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\__init__.py", line 26, in <module>
+
+2026-07-07T21:20:58.318894: error: RemoteScriptError:     
+2026-07-07T21:20:58.318905: error: RemoteScriptError: from .colors import Rgb
+2026-07-07T21:20:58.318912: error: RemoteScriptError: 
+
+2026-07-07T21:20:58.318923: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\colors.py", line 1, in <module>
+
+2026-07-07T21:20:58.319007: error: RemoteScriptError:     
+2026-07-07T21:20:58.319018: error: RemoteScriptError: from ableton.v3.base import liveobj_color_to_value_from_palette, liveobj_valid, memoize
+2026-07-07T21:20:58.319025: error: RemoteScriptError: 
+
+2026-07-07T21:20:58.319034: error: RemoteScriptError: ImportError
+2026-07-07T21:20:58.319041: error: RemoteScriptError: : 
+2026-07-07T21:20:58.319049: error: RemoteScriptError: cannot import name 'liveobj_color_to_value_from_palette' from 'ableton.v3.base' (D:\Ableton\Resources\MIDI Remote Scripts\ableton\v3\base\__init__.pyc)
+2026-07-07T21:20:58.319056: error: RemoteScriptError: 
