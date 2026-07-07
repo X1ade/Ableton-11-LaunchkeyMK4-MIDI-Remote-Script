@@ -1,76 +1,69 @@
-2026-07-07T21:47:59.329581: info: ASIO: SInit: UseClockSource: true
-2026-07-07T21:47:59.329586: info: ASIO: SInit: UseSetSampleRate: true
-2026-07-07T21:47:59.329592: info: ASIO: SInit: UseSampleRateCheck: true
-2026-07-07T21:47:59.329597: info: ASIO: SInit: finished
-2026-07-07T21:47:59.329631: info: Audio In Out: OnArchitecturesAdded started
-2026-07-07T21:47:59.329673: info: Audio In Out: OnArchitecturesAdded finished
-2026-07-07T21:47:59.697109: error: RemoteScriptError: Traceback (most recent call last):
+2026-07-07T22:22:03.597761: error: RemoteScriptError: Traceback (most recent call last):
 
-2026-07-07T21:47:59.697130: error: RemoteScriptError:   File "<string>", line 1, in <module>
+2026-07-07T22:22:03.597783: error: RemoteScriptError:   File "<string>", line 1, in <module>
 
-2026-07-07T21:47:59.697304: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\__init__.py", line 26, in <module>
+2026-07-07T22:22:03.597940: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\__init__.py", line 28, in <module>
 
-2026-07-07T21:47:59.697439: error: RemoteScriptError:     
-2026-07-07T21:47:59.697452: error: RemoteScriptError: from .colors import Rgb
-2026-07-07T21:47:59.697459: error: RemoteScriptError: 
+2026-07-07T22:22:03.598059: error: RemoteScriptError:     
+2026-07-07T22:22:03.598073: error: RemoteScriptError: from .display import default_label_content, display_specification
+2026-07-07T22:22:03.598081: error: RemoteScriptError: 
 
-2026-07-07T21:47:59.697471: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\colors.py", line 2, in <module>
+2026-07-07T22:22:03.598090: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\display.py", line 136, in <module>
 
-2026-07-07T21:47:59.697605: error: RemoteScriptError:     
-2026-07-07T21:47:59.697628: error: RemoteScriptError: from ableton.v3.base import liveobj_valid
-2026-07-07T21:47:59.697635: error: RemoteScriptError: 
+2026-07-07T22:22:03.598189: error: RemoteScriptError:     
+2026-07-07T22:22:03.598199: error: RemoteScriptError: display_specification = DisplaySpecification(render=render, protocol=protocol)
+2026-07-07T22:22:03.598206: error: RemoteScriptError: 
 
-2026-07-07T21:47:59.697647: error: RemoteScriptError: ImportError
-2026-07-07T21:47:59.697655: error: RemoteScriptError: : 
-2026-07-07T21:47:59.697668: error: RemoteScriptError: cannot import name 'liveobj_valid' from 'ableton.v3.base' (D:\Ableton\Resources\MIDI Remote Scripts\ableton\v3\base\__init__.pyc)
-2026-07-07T21:47:59.697674: error: RemoteScriptError: 
+2026-07-07T22:22:03.598216: error: RemoteScriptError: TypeError
+2026-07-07T22:22:03.598223: error: RemoteScriptError: : 
+2026-07-07T22:22:03.598230: error: RemoteScriptError: __init__() got an unexpected keyword argument 'render'
+2026-07-07T22:22:03.598237: error: RemoteScriptError: 
 
-2026-07-07T21:47:59.870577: info: ALMidiIO: Start EnumerateDevices
-2026-07-07T21:47:59.873262: info: ALMidiIO: End EnumerateDevices
-2026-07-07T21:47:59.875076: info: Audio In Out: Init started
-2026-07-07T21:47:59.876994: info: Audio In Out: Init finished
-2026-07-07T21:47:59.877027: info: LSongAgent: Begin Constructing
-2026-07-07T21:47:59.885310: info: LSongAgent: End Constructing
-2026-07-07T21:47:59.885348: info: MemoryUsage: V: 5.2 GB, R: 302.8 MB, P: 289.8 MB
-2026-07-07T21:47:59.888480: info: Audio In Out: AfterRead started
-2026-07-07T21:47:59.888683: info: Audio In Out: AfterRead finished
-2026-07-07T21:47:59.888823: info: MidiDeviceManager: Start OpenAllActivatedDevices
-2026-07-07T21:47:59.909164: info: MidiDeviceManager: End OpenAllActivatedDevices
-2026-07-07T21:47:59.909489: info: ALivePreferences: Begin AfterPreferencesLoaded
-2026-07-07T21:47:59.909542: info: ALivePreferences: Session cookie?: no
-2026-07-07T21:47:59.928449: info: Directories: Core Library Slice dir: [D:\Ableton\Resources\Core Library] 
-2026-07-07T21:47:59.929046: info: PluginManager: Scan start ------------------
-2026-07-07T21:47:59.929486: info: Plugins: start scanner process
-2026-07-07T21:47:59.930381: info: PluginManager: Scan end --------------------
-2026-07-07T21:47:59.930432: info: ALivePreferences: End AfterPreferencesLoaded
-2026-07-07T21:47:59.930448: info: Default App: End LoadPrefs
-2026-07-07T21:47:59.960415: info: Default App: Performing pre-document setup...
-2026-07-07T21:47:59.999139: error: RemoteScriptError: Traceback (most recent call last):
+2026-07-07T22:22:03.898655: info: ALMidiIO: Start EnumerateDevices
+2026-07-07T22:22:03.901452: info: ALMidiIO: End EnumerateDevices
+2026-07-07T22:22:03.903194: info: Audio In Out: Init started
+2026-07-07T22:22:03.905189: info: Audio In Out: Init finished
+2026-07-07T22:22:03.905223: info: LSongAgent: Begin Constructing
+2026-07-07T22:22:03.911863: info: LSongAgent: End Constructing
+2026-07-07T22:22:03.911907: info: MemoryUsage: V: 5.2 GB, R: 301.5 MB, P: 289.7 MB
+2026-07-07T22:22:03.941497: info: Audio In Out: AfterRead started
+2026-07-07T22:22:03.941677: info: Audio In Out: AfterRead finished
+2026-07-07T22:22:03.941835: info: MidiDeviceManager: Start OpenAllActivatedDevices
+2026-07-07T22:22:03.955236: info: MidiDeviceManager: End OpenAllActivatedDevices
+2026-07-07T22:22:03.955556: info: ALivePreferences: Begin AfterPreferencesLoaded
+2026-07-07T22:22:03.955608: info: ALivePreferences: Session cookie?: no
+2026-07-07T22:22:03.980580: info: Directories: Core Library Slice dir: [D:\Ableton\Resources\Core Library] 
+2026-07-07T22:22:03.981483: info: PluginManager: Scan start ------------------
+2026-07-07T22:22:03.982081: info: Plugins: start scanner process
+2026-07-07T22:22:03.983295: info: PluginManager: Scan end --------------------
+2026-07-07T22:22:03.983376: info: ALivePreferences: End AfterPreferencesLoaded
+2026-07-07T22:22:03.983403: info: Default App: End LoadPrefs
+2026-07-07T22:22:04.074536: info: Default App: Performing pre-document setup...
+2026-07-07T22:22:04.116866: error: RemoteScriptError: Traceback (most recent call last):
 
-2026-07-07T21:47:59.999164: error: RemoteScriptError:   File "<string>", line 1, in <module>
+2026-07-07T22:22:04.116886: error: RemoteScriptError:   File "<string>", line 1, in <module>
 
-2026-07-07T21:47:59.999359: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\__init__.py", line 26, in <module>
+2026-07-07T22:22:04.117046: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\__init__.py", line 28, in <module>
 
-2026-07-07T21:47:59.999493: error: RemoteScriptError:     
-2026-07-07T21:47:59.999505: error: RemoteScriptError: from .colors import Rgb
-2026-07-07T21:47:59.999513: error: RemoteScriptError: 
+2026-07-07T22:22:04.117180: error: RemoteScriptError:     
+2026-07-07T22:22:04.117193: error: RemoteScriptError: from .display import default_label_content, display_specification
+2026-07-07T22:22:04.117200: error: RemoteScriptError: 
 
-2026-07-07T21:47:59.999524: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\colors.py", line 2, in <module>
+2026-07-07T22:22:04.117210: error: RemoteScriptError:   File "D:\Ableton\Resources\MIDI Remote Scripts\Launchkey_MK4_patched\display.py", line 136, in <module>
 
-2026-07-07T21:47:59.999618: error: RemoteScriptError:     
-2026-07-07T21:47:59.999627: error: RemoteScriptError: from ableton.v3.base import liveobj_valid
-2026-07-07T21:47:59.999634: error: RemoteScriptError: 
+2026-07-07T22:22:04.117314: error: RemoteScriptError:     
+2026-07-07T22:22:04.117324: error: RemoteScriptError: display_specification = DisplaySpecification(render=render, protocol=protocol)
+2026-07-07T22:22:04.117331: error: RemoteScriptError: 
 
-2026-07-07T21:47:59.999643: error: RemoteScriptError: ImportError
-2026-07-07T21:47:59.999650: error: RemoteScriptError: : 
-2026-07-07T21:47:59.999659: error: RemoteScriptError: cannot import name 'liveobj_valid' from 'ableton.v3.base' (D:\Ableton\Resources\MIDI Remote Scripts\ableton\v3\base\__init__.pyc)
-2026-07-07T21:47:59.999665: error: RemoteScriptError: 
+2026-07-07T22:22:04.117340: error: RemoteScriptError: TypeError
+2026-07-07T22:22:04.117358: error: RemoteScriptError: : 
+2026-07-07T22:22:04.117366: error: RemoteScriptError: __init__() got an unexpected keyword argument 'render'
+2026-07-07T22:22:04.117372: error: RemoteScriptError: 
 
-2026-07-07T21:48:00.992330: info: LiveUi: AddControlled...
-2026-07-07T21:48:01.020191: info: Service Discovery: Init Gateway on Interface 10.5.0.2
-2026-07-07T21:48:01.020262: info: Service Discovery: Init Gateway on Interface 127.0.0.1
-2026-07-07T21:48:01.020305: info: Service Discovery: Init Gateway on Interface 192.168.0.30
-2026-07-07T21:48:01.020427: info: Service Discovery: Init Gateway on Interface fe80::7
+2026-07-07T22:22:05.126466: info: LiveUi: AddControlled...
+2026-07-07T22:22:05.154282: info: Service Discovery: Init Gateway on Interface 10.5.0.2
+2026-07-07T22:22:05.154440: info: Service Discovery: Init Gateway on Interface 127.0.0.1
+
 
 === Live version ===
 Live version: 11.3.11
