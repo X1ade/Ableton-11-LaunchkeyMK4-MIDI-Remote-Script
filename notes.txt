@@ -64,7 +64,6 @@
 2026-07-07T22:22:05.154282: info: Service Discovery: Init Gateway on Interface 10.5.0.2
 2026-07-07T22:22:05.154440: info: Service Discovery: Init Gateway on Interface 127.0.0.1
 
-
 === Live version ===
 Live version: 11.3.11
 
@@ -116,35 +115,115 @@ ButtonElement, ButtonMatrixElement, CachingSendMessageGenerator, Color, ColorPar
 === ableton.v3.control_surface.midi ===
 CC_STATUS, NOTE_OFF_STATUS, NOTE_ON_STATUS, PB_STATUS, SYSEX_END, SYSEX_GENERAL_INFO, SYSEX_IDENTITY_REQUEST_ID, SYSEX_IDENTITY_REQUEST_MESSAGE, SYSEX_IDENTITY_RESPONSE_ID, SYSEX_NON_REALTIME, SYSEX_START, extract_value, is_valid_sysex
 
+=== ableton.v3.control_surface.display.view ===
+CompoundView, DEFAULT_NOTIFICATION_DURATION, DisconnectedView, NotificationView, View
+
+=== ableton.v3.control_surface.display.view.view ===
+Callable, CompoundView, ContentType, DISCONNECT_EVENT, DisconnectedView, Event, Generic, INIT_EVENT, Optional, Render, State, View, absolute_import, const, depends, print_function, unicode_literals
+
+=== ableton.v3.control_surface.display.notifications ===
+DefaultNotifications, Notifications
+
+=== ableton.v3.control_surface.display.notifications.all ===
+ClipName, ClipSlot, ComponentName, DeviceBank, DeviceName, Fn, ModeName, NewType, Notification, Notifications, PadName, Range, RangeName, Resolution, SceneName, Subdivision, TrackName, absolute_import, annotations, display_name, major_version, pitch_index_to_string, print_function, toggle_text_generator, unicode_literals
+
 === SIGNATURE ableton.v3.control_surface.display.DisplaySpecification ===
 type: <class 'type'>
 signature: (create_root_view: Union[Callable[[], ableton.v3.control_surface.display.view.view.View], NoneType] = None, protocol=None, notifications: Union[Type[ableton.v3.control_surface.display.notifications.all.Notifications], NoneType] = None)
+attrs: []
 
 === SIGNATURE ableton.v3.control_surface.display.Renderable ===
 type: <class 'type'>
 signature: (react=None, notifications: 'Optional[Type[Notifications]]' = None, suppress_notifications: 'Optional[Callable]' = None, *a, **k)
+attrs: ['control_base_type', 'disconnect', 'disconnect_disconnectable', 'dispatch_event', 'find_disconnectable', 'has_disconnectable', 'include_in_top_level_state', 'notify', 'register_disconnectable', 'register_disconnectables', 'renderable_state', 'suppress_notifications', 'unregister_disconnectable']
+
+=== SIGNATURE ableton.v3.control_surface.display.Display ===
+type: <class 'type'>
+signature: (specification: ableton.v3.control_surface.display.display_specification.DisplaySpecification, renderable_components, elements)
+attrs: ['clear_content_cache', 'deferring_render_and_update_display', 'disconnect', 'display', 'react', 'render', 'render_and_update_display', 'rendered_content', 'state']
+
+=== SIGNATURE ableton.v3.control_surface.display.Text ===
+type: <class 'abc.ABCMeta'>
+signature: (string: str = '', justification: Union[ableton.v3.control_surface.display.text.Text.Justification, NoneType] = None, max_width: Union[int, ableton.v3.control_surface.display.text.Text.ContentWidth, NoneType] = None)
+attrs: ['ContentWidth', 'Justification', 'as_ascii', 'as_string', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+
+=== SIGNATURE ableton.v3.control_surface.display.State ===
+type: <class 'type'>
+signature: ()
+attrs: ['as_dict', 'get_repr_data', 'repr_filters', 'set_delayed', 'trigger_timers']
+
+=== SIGNATURE ableton.v3.control_surface.display.StateFilters ===
+type: <class 'type'>
+signature: (key_filter: Callable = <function StateFilters.<lambda> at 0x000000001CAC0268>, value_filter: Callable = <function StateFilters.<lambda> at 0x000000001CAC02F0>) -> None
+doc: StateFilters(key_filter: Callable = <function StateFilters.<lambda> at 0x000000001CAC0268>, value_filter: Callable = <function StateFilters.<lambda> at 0x000000001CAC02F0>)
+attrs: ['key_filter', 'value_filter']
+
+=== SIGNATURE ableton.v3.control_surface.display.DefaultNotifications ===
+type: <class 'ableton.v3.control_surface.display.notifications.meta.DefaultNotificationsMeta'>
+signature: ()
+attrs: ['Automation', 'Clip', 'Clipboard', 'DefaultText', 'Device', 'DrumGroup', 'Element', 'Modes', 'Notes', 'Recording', 'Scene', 'Simpler', 'Track', 'TransformDefaultText', 'Transport', 'UndoRedo', 'controlled_range', 'full_velocity', 'generic', 'identify', 'note_repeat']
+
+=== SIGNATURE ableton.v3.control_surface.display.Notifications ===
+type: <class 'type'>
+signature: ()
+attrs: ['Automation', 'Clip', 'Clipboard', 'DefaultText', 'Device', 'DrumGroup', 'Element', 'Modes', 'Notes', 'Recording', 'Scene', 'Simpler', 'Track', 'TransformDefaultText', 'Transport', 'UndoRedo', 'controlled_range', 'full_velocity', 'generic', 'identify', 'note_repeat']
+
+=== SIGNATURE ableton.v3.control_surface.display.Event ===
+type: <class 'type'>
+_fields: ('name', 'origin', 'value')
+signature: (name: str, origin: Any, value: Any)
+doc: Event(name, origin, value)
+attrs: ['count', 'index', 'name', 'origin', 'value']
+
+=== SIGNATURE ableton.v3.control_surface.display.auto_break_lines ===
+type: <class 'function'>
+signature: (text: str, max_width: int, max_lines: int, pad_lines: bool = True) -> List[str]
+
+=== SIGNATURE ableton.v3.control_surface.display.updating_display ===
+type: <class 'ableton.v2.base.util.BooleanContext'>
+signature: (update_value=None)
+
+=== SIGNATURE ableton.v3.control_surface.display.view.view.View ===
+type: <class 'type'>
+signature: (*a, register_react_fn: Union[Callable, NoneType] = None, **k)
+attrs: ['content_condition', 'render', 'render_condition']
+
+=== SIGNATURE ableton.v3.control_surface.display.notifications.all.Notifications ===
+type: <class 'type'>
+signature: ()
+attrs: ['Automation', 'Clip', 'Clipboard', 'DefaultText', 'Device', 'DrumGroup', 'Element', 'Modes', 'Notes', 'Recording', 'Scene', 'Simpler', 'Track', 'TransformDefaultText', 'Transport', 'UndoRedo', 'controlled_range', 'full_velocity', 'generic', 'identify', 'note_repeat']
 
 === SIGNATURE ableton.v3.control_surface.ControlSurfaceSpecification ===
 type: <class 'type'>
 __init__ signature: (self, /, *args, **kwargs)
+doc: A simple attribute-based namespace.
+
+SimpleNamespace(**kwargs)
+attrs: ['auto_arm_component_type', 'background_priority', 'component_map', 'continuous_parameter_sensitivity', 'control_surface_skin', 'create_mappings_function', 'custom_identity_response', 'device_provider_type', 'display_specification', 'elements_type', 'feedback_channels', 'goodbye_messages', 'hello_messages', 'identity_request', 'identity_request_delay', 'identity_response_id_bytes', 'include_auto_arming', 'include_master', 'include_returns', 'link_session_ring_to_scene_selection', 'link_session_ring_to_track_selection', 'num_scenes', 'num_tracks', 'parameter_bank_definitions', 'parameter_bank_size', 'playing_feedback_velocity', 'quantized_parameter_sensitivity', 'recording_feedback_velocity', 'recording_method_type', 'right_align_non_player_tracks', 'send_goodbye_messages_last', 'session_ring_component_type', 'snap_track_offset', 'target_track_component_type']
 
 === SIGNATURE ableton.v3.control_surface.Skin ===
 type: <class 'type'>
 signature: (colors=None, *a, **k)
+attrs: []
 
 === SIGNATURE ableton.v3.control_surface.LiveObjSkinEntry ===
 type: <class 'type'>
 _fields: ('name', 'liveobj')
 signature: (name: str, liveobj: Any)
+doc: LiveObjSkinEntry(name, liveobj)
+attrs: ['count', 'index', 'liveobj', 'name']
 
 === SIGNATURE ableton.v3.control_surface.ElementsBase ===
 type: <class 'type'>
 signature: (global_channel=0, *a, **k)
+attrs: ['add_button', 'add_button_matrix', 'add_element', 'add_encoder', 'add_encoder_matrix', 'add_matrix', 'add_modified_control', 'add_modifier_button', 'add_submatrix', 'add_sysex_display_line', 'add_sysex_element']
 
 === SIGNATURE ableton.v2.control_surface.InternalParameter ===
 type: <class 'ableton.v2.base.event.EventObjectMeta'>
 signature: (parent=None, display_value_conversion=None, *a, **k)
+attrs: ['add_automation_state_listener', 'add_name_listener', 'add_state_listener', 'add_value_listener', 'automation_state', 'automation_state_has_listener', 'automation_state_listener_count', 'canonical_parent', 'default_value', 'disconnect', 'disconnect_disconnectable', 'display_value', 'find_disconnectable', 'has_disconnectable', 'is_enabled', 'is_quantized', 'linear_value', 'max', 'min', 'name', 'name_has_listener', 'name_listener_count', 'notify_automation_state', 'notify_name', 'notify_state', 'notify_value', 'original_name', 'register_disconnectable', 'register_disconnectables', 'register_slot', 'remove_automation_state_listener', 'remove_name_listener', 'remove_state_listener', 'remove_value_listener', 'set_display_value_conversion', 'set_scaling_functions', 'state', 'state_has_listener', 'state_listener_count', 'unregister_disconnectable', 'value', 'value_has_listener', 'value_listener_count']
 
 === SIGNATURE ableton.v2.control_surface.control.StepEncoderControl ===
 type: <class 'type'>
 signature: (*a, **k)
+attrs: ['State', 'TOUCH_TIME', 'released', 'touched', 'value']
