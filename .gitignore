@@ -1,0 +1,11 @@
+# Python bytecode/cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Diagnostic output (machine-specific - the relevant parts get pasted into notes.txt instead)
+mk4_api_dump.txt
+
+# OS junk
+.DS_Store
+Thumbs.db
