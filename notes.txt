@@ -115,3 +115,36 @@ ButtonElement, ButtonMatrixElement, CachingSendMessageGenerator, Color, ColorPar
 
 === ableton.v3.control_surface.midi ===
 CC_STATUS, NOTE_OFF_STATUS, NOTE_ON_STATUS, PB_STATUS, SYSEX_END, SYSEX_GENERAL_INFO, SYSEX_IDENTITY_REQUEST_ID, SYSEX_IDENTITY_REQUEST_MESSAGE, SYSEX_IDENTITY_RESPONSE_ID, SYSEX_NON_REALTIME, SYSEX_START, extract_value, is_valid_sysex
+
+=== SIGNATURE ableton.v3.control_surface.display.DisplaySpecification ===
+type: <class 'type'>
+signature: (create_root_view: Union[Callable[[], ableton.v3.control_surface.display.view.view.View], NoneType] = None, protocol=None, notifications: Union[Type[ableton.v3.control_surface.display.notifications.all.Notifications], NoneType] = None)
+
+=== SIGNATURE ableton.v3.control_surface.display.Renderable ===
+type: <class 'type'>
+signature: (react=None, notifications: 'Optional[Type[Notifications]]' = None, suppress_notifications: 'Optional[Callable]' = None, *a, **k)
+
+=== SIGNATURE ableton.v3.control_surface.ControlSurfaceSpecification ===
+type: <class 'type'>
+__init__ signature: (self, /, *args, **kwargs)
+
+=== SIGNATURE ableton.v3.control_surface.Skin ===
+type: <class 'type'>
+signature: (colors=None, *a, **k)
+
+=== SIGNATURE ableton.v3.control_surface.LiveObjSkinEntry ===
+type: <class 'type'>
+_fields: ('name', 'liveobj')
+signature: (name: str, liveobj: Any)
+
+=== SIGNATURE ableton.v3.control_surface.ElementsBase ===
+type: <class 'type'>
+signature: (global_channel=0, *a, **k)
+
+=== SIGNATURE ableton.v2.control_surface.InternalParameter ===
+type: <class 'ableton.v2.base.event.EventObjectMeta'>
+signature: (parent=None, display_value_conversion=None, *a, **k)
+
+=== SIGNATURE ableton.v2.control_surface.control.StepEncoderControl ===
+type: <class 'type'>
+signature: (*a, **k)
