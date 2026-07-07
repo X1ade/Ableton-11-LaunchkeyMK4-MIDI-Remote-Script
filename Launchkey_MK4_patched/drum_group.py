@@ -1,4 +1,5 @@
-from ableton.v3.base import liveobj_valid, listens
+from ableton.v2.base import liveobj_valid
+from ableton.v3.base import listens
 from ableton.v3.control_surface import LiveObjSkinEntry
 from ableton.v3.control_surface.components import DrumGroupComponent as DrumGroupComponentBase
 class DrumGroupComponent(DrumGroupComponentBase):

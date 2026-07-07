@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from enum import IntEnum
 from typing import Optional, Tuple
 
-from ableton.v3.base import as_ascii, find_parent_track, liveobj_valid, parameter_display_name
+from ableton.v2.base import liveobj_valid
+from ableton.v3.base import as_ascii
 from ableton.v3.control_surface.display import DisplaySpecification
 
 DISPLAY_WIDTH = 16
@@ -14,6 +15,16 @@ def display_text_bytes(line):
 
 def liveobj_name(obj):
     return obj.name if liveobj_valid(obj) else None
+
+
+def find_parent_track(obj):
+    while liveobj_valid(obj) and not hasattr(obj, 'clip_slots'):
+        obj = obj.canonical_parent
+    return obj if liveobj_valid(obj) else None
+
+
+def parameter_display_name(parameter):
+    return parameter.name if liveobj_valid(parameter) else '-'
 
 
 class Config(IntEnum):

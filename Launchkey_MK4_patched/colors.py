@@ -1,5 +1,4 @@
-from ableton.v2.base import memoize
-from ableton.v3.base import liveobj_valid
+from ableton.v2.base import liveobj_valid, memoize
 from ableton.v3.control_surface import STANDARD_COLOR_PALETTE, STANDARD_FALLBACK_COLOR_TABLE
 from ableton.v3.control_surface.elements import ColorPart, ComplexColor, SimpleColor
 BLINK_CHANNEL = 1

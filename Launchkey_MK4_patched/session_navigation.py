@@ -1,11 +1,12 @@
-from ableton.v3.base import depends, liveobj_valid, song
+from ableton.v2.base import liveobj_valid
+from ableton.v3.base import depends
 from ableton.v3.control_surface.components import SessionNavigationComponent as SessionNavigationComponentBase
 
 
-def select(track):
+def select(song, track):
     try:
         if liveobj_valid(track):
-            song().view.selected_track = track
+            song.view.selected_track = track
             return True
     except RuntimeError:
         pass
@@ -21,4 +22,4 @@ class SessionNavigationComponent(SessionNavigationComponentBase):
         self.register_slot(self._page_horizontal.scrollable, self._on_tracks_scrolled, 'scrolled')
     def _on_tracks_scrolled(self):
         if self._session_ring.track_offset in range(len(self.song.tracks)):
-            select(self.song.tracks[self._session_ring.track_offset])
+            select(self.song, self.song.tracks[self._session_ring.track_offset])

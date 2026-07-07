@@ -1,6 +1,6 @@
+from ableton.v2.base import liveobj_valid
 from ableton.v2.control_surface import InternalParameter
 from ableton.v2.control_surface.control import StepEncoderControl
-from ableton.v3.base import liveobj_valid
 def register_internal_parameter(parent, name, display_fn):
     return parent.register_disconnectable(InternalParameter(name=name, display_value_conversion=display_fn))
 class InternalParameterControl(StepEncoderControl):

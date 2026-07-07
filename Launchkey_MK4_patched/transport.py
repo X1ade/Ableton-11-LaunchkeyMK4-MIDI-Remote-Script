@@ -1,8 +1,13 @@
-from ableton.v3.base import move_current_song_time, round_to_multiple, sign
+from ableton.v2.base import move_current_song_time
+from ableton.v3.base import sign
 from ableton.v3.control_surface.components import TransportComponent as TransportComponentBase
 from .internal_parameter import InternalParameterControl, register_internal_parameter
 def get_bar_length(song):
     return 4.0 * song.signature_numerator / song.signature_denominator
+def round_to_multiple(value, multiple):
+    if not multiple:
+        return value
+    return int(value / multiple) * multiple
 def format_beat_time(beat_time):
     return '{}.{}.{}'.format(beat_time.bars, beat_time.beats, beat_time.sub_division)
 class TransportComponent(TransportComponentBase):
