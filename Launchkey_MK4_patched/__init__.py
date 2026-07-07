@@ -181,7 +181,12 @@ class LaunchkeyCommonControlSurface(ControlSurface):
     def identification_state_changed(self, state):
         try:
             if state:
-                self.display.display(default_label_content())
+                try:
+                    self.display.display(default_label_content())
+                except Exception:
+                    # display_specification is currently a no-op (LCD content DSL
+                    # not yet ported to Live 11's View-based API) - non-fatal.
+                    _logger.exception("Non-fatal: self.display.display() failed (LCD content disabled)")
                 self.component_map["Main_Pad_Modes"].selected_mode = "null_0"
                 self.send_midi(midi.make_disable_daw_label_popup(self.specification.sysex_header))
 

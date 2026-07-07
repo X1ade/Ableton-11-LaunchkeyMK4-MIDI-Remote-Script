@@ -133,4 +133,14 @@ def protocol(elements):
     return display
 
 
-display_specification = DisplaySpecification(render=render, protocol=protocol)
+# NOTE: the real Live 11.3.11 DisplaySpecification uses a View-based DSL
+# (create_root_view / CompoundView / NotificationView) that is fundamentally
+# different from the render()/protocol() pattern this file was built around
+# (confirmed via MK4_API_Diagnostic - see notes.txt). Reconstructing that DSL
+# blind risks more broken-script restart cycles, and no stock reference script
+# is available on this machine to copy the real usage from. Until that DSL is
+# implemented properly, the LCD screen is left inert (no track/device/transport
+# text) so the rest of the control surface (pads, encoders, faders, session,
+# transport) can load and work. `render`/`protocol` above are kept, unused, so
+# this is a one-line change to restore once the View DSL is implemented.
+display_specification = DisplaySpecification()
